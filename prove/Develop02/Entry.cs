@@ -4,8 +4,14 @@ public class Entry
     public DateTime _date;
     public string _prompt;
 
+    public object Date { get; internal set; }
+
     public void Display()
     {
-
+        List<Entry> entries = new List<Entry>();
+        foreach (Entry todayEntry in entries) 
+        {
+            Console.WriteLine(todayEntry);
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.IO;
 
 public class Journal
 {
@@ -9,28 +10,46 @@ public class Journal
     //display all entries
     public void DisplayAll()
     {
-        foreach (Entry entry in _entries)
+        foreach (Entry _todayEntry in _entries)
         {
-            Console.WriteLine("Date: {entry.Date}");
-            Console.WriteLine("Prompt: {entry.Prompt}");
-            Console.WriteLine("Response: {entry.Response}");
+            Console.WriteLine($"Date: {_todayEntry.Date}");
+            Console.WriteLine($"Prompt: {_todayEntry.Prompt}");
+            Console.WriteLine($"Response: {_todayEntry.Response}");
         }
     }
 
     //add entry
-    public void AddEntry(_todayEntry Entry)
+    public void AddEntry(Entry _todayEntry)
     {
-        return "";
+        _entries.Add(_todayEntry);
     }
 
     //save to file
-    public void SaveToFile(string file)
+    public static void SaveToFile(string file)
     {
-        Console.WriteLine('Please enter the file name here: ');
+        Console.WriteLine("Please enter the file name here: ");
+        file = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter (file))
+        {
+            foreach (var entry in _entries)
+            {
+                outputFile.WriteLine ($" {entry.Date}, {entry.Prompt}, {entry. Response}");
+            }
+        }
+        Console.WriteLine("Entry saved successfully! ");
     }
 
-    public void LoadFromFile(string file)
+//load from file
+    public static List<Entry> LoadFromFile(string file)
     {
-
+        List<Entry> fileEntries = new List<Entry>();
+        Console.WriteLine("Please enter the file name here: ");
+        file = Console.ReadLine(); 
+        string[] lines = System.IO.File.ReadAllLines(file);
+        foreach (string line in lines)
+        {
+            Console.WriteLine(line);
+        }
+        return fileEntries;
     }
 }
