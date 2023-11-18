@@ -21,14 +21,15 @@ class Program
             {
                 Console.WriteLine("OK here is your prompt of the day!");
                 List<string> prompts = new List<string> {"What did you learn today?", "What's one thing that made you smile today?", "What are three things you were grateful for today?", "What is one problem or challenge you faced today and how did you overcome it?", "Write down three things you have accomplished today, no matter how small.", "What is something someone said today that stuck out to you?", "What did you do today to get out of your comfort zone and grow?"};                  
-                Random PromptGenerator new Random();
+                Random PromptGenerator = new Random();
                 int index = PromptGenerator.Next(1,6);
                 string randomPrompt = prompts[index];
                 Console.WriteLine(randomPrompt);
             }
             else if (choice == 2)
             {
-                DisplayAll();
+                Journal DisplayAll = new Journal();
+                Console.WriteLine(DisplayAll);
             }
             else if (choice == 3)
             {
@@ -40,7 +41,8 @@ class Program
             }
             else if (choice == 4)
             {
-                SaveToFile();
+                Journal SaveToFile = new Journal();
+                Console.WriteLine(SaveToFile);
             }
             else if (choice == 5)
             {
