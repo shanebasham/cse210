@@ -27,16 +27,16 @@ public class Journal
     //save to file
     public static void SaveToFile(string file)
     {
-        Console.WriteLine("Please enter the file name here: ");
-        file = Console.ReadLine();
-        using (StreamWriter outputFile = new StreamWriter (file))
-        {
-            foreach (var entry in _entries)
-            {
-                outputFile.WriteLine ($" {entry.Date}, {entry.Prompt}, {entry. Response}");
-            }
-        }
-        Console.WriteLine("Entry saved successfully! ");
+        // Console.WriteLine("Please enter the file name here: ");
+        // file = Console.ReadLine();
+        // using (StreamWriter outputFile = new StreamWriter (file))
+        // {
+        //     foreach (var entry in _entries)
+        //     {
+        //         outputFile.WriteLine ($" {entry.Date}, {entry.Prompt}, {entry. Response}");
+        //     }
+        // }
+        // Console.WriteLine("Entry saved successfully! ");
     }
 
 //load from file

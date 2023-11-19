@@ -5,6 +5,8 @@ public class Entry
     public string _prompt;
 
     public object Date { get; internal set; }
+    public object Prompt { get; internal set; }
+    public object Response { get; internal set; }
 
     public void Display()
     {

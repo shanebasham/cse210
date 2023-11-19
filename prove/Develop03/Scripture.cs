@@ -42,19 +42,22 @@ namespace scripture_memorizer
         public string Reference { get; set; }
         public string Verse { get; set; }
         public string[] _words;
-        public List<int> _hiddenWords;
+        public List<Word> _hiddenWords;
 
         public Scripture(string reference, string verse)
         {
             Reference = reference;
             Verse = verse;
             _words = verse.Split(' ');
-            _hiddenWords = new List<int>();
+            _hiddenWords = new List<Word>();
         }
 
         public void HideRandomWords(int numberToHide)
         {
-            // Random random = new Random();
+            Random random = new Random();
+            Word._isHidden();
+            
+            
             // for (int i = 0; i < numberToHide; i++)
             // {
             //     int randomIndex;
@@ -74,18 +77,18 @@ namespace scripture_memorizer
             // }
             // _words = result;
 
-            Random rnd = new Random();
-            var inputString = Verse;
-            var randomIndices = Enumerable.Range(0,inputString.Length)
-                                        .OrderBy(x=>rnd.Next())
-                                        .Take(numberToHide)
-                                        .ToList();
+            // Random rnd = new Random();
+            // var inputString = Verse;
+            // var randomIndices = Enumerable.Range(0,inputString.Length)
+            //                             .OrderBy(x=>rnd.Next())
+            //                             .Take(numberToHide)
+            //                             .ToList();
 
-            for(int i=0;i<inputString.Length;i++)
-            {
-                _hiddenWords.Append(randomIndices.Contains(i) ? '*':inputString[i]);
-            }
-            var result = _hiddenWords.ToString();
+            // for(int i=0;i<inputString.Length;i++)
+            // {
+            //     _hiddenWords.Append(randomIndices.Contains(i) ? '*':inputString[i]);
+            // }
+            // var result = _hiddenWords.ToString();
 
             // Random rnd = new Random();
             // while (numberToHide > 0)
@@ -111,3 +114,6 @@ namespace scripture_memorizer
         }
     }
 }
+
+
+

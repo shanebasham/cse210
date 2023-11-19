@@ -1,7 +1,8 @@
 using System;
 using System.Reflection;
+using System.Transactions;
 
-class Program
+public class Program
 {
     static void Main(string[] args)
     {
@@ -33,7 +34,9 @@ class Program
             }
             else if (choice == 3)
             {
-                List<Entry> fileEntries = LoadFromFile();
+                Console.WriteLine("Enter file name here: ");
+                string file = Console.ReadLine();
+                List<Entry> fileEntries = Journal.LoadFromFile(file);
                 foreach (Entry entry in fileEntries)
                 {
                     Console.WriteLine(entry);
