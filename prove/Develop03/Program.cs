@@ -1,27 +1,74 @@
+// using System;
+
+// namespace scripture_memorizer
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             Console.WriteLine("Alma 32:21 And now as I said concerning faith—afaith is not to have a perfect knowledge of things; therefore if ye have faith ye bhope for things which are cnot seen, which are true.");
+//             Console.WriteLine("Press enter to continue, type quit to finish. ");
+//             string quit = Console.ReadLine();
+//             Console.Clear();
+//             while (!quit.StartsWith("q"))
+//                 {
+//                     HideWords();
+//                 }
+//             Console.WriteLine("OK Goodbye!");
+//             break;
+//         }
+//         static void HideWords()
+//         {
+//             Console.WriteLine("Works?");
+//         }
+//     }
+// }
+
 using System;
 
-namespace scripture_generator
+
+namespace scripture_memorizer
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Alma 32:21 And now as I said concerning faith—afaith is not to have a perfect knowledge of things; therefore if ye have faith ye bhope for things which are cnot seen, which are true.");
-            Console.WriteLine("Press enter to continue, type quit to finish: ");
-            string quit = Console.ReadLine();
-            while (!quit.StartsWith("q"))
+            var scripture = new Scripture("Alma 32:21", "And now as I said concerning faith — faith is not to have a perfect knowledge of things; therefore if ye have faith ye hope for things which are not seen, which are true.");
+            // Console.Clear();
+            Console.WriteLine(scripture.Reference);
+            Console.WriteLine(scripture.Verse);
+
+            while (true)
+            {
+                Console.Write("Press enter to continue, type quit to finish. ");
+                string input = Console.ReadLine();
+
+                if (input.StartsWith("q"))
                 {
-                    HideWords();
+                    Console.WriteLine("OK Goodbye!");
+                    break;
                 }
-            Console.WriteLine("OK Goodbye!");
-            Environment.Exit(0);
-        }
-        static void HideWords()
-        {
-            Console.WriteLine("Works?");
+
+                scripture.HideRandomWords(3);
+                // Console.Clear();
+                Console.WriteLine(scripture.Reference);
+                Console.WriteLine(scripture.Verse);
+
+                if (scripture.IsCompletelyHidden())
+                {
+                    break;
+                }
+            }
         }
     }
 }
+
+
+
+
+
+       
+
 
 // Scripture
 // _reference: Reference 

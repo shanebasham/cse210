@@ -1,8 +1,8 @@
 using System;
 
-namespace scripture_generator
+namespace scripture_memorizer
 {
-    class Reference
+    public class Reference
     {
         public string _book;
         public int _chapter; 

@@ -1,8 +1,8 @@
 using System;
 
-namespace scripture_generator
+namespace scripture_memorizer
 {
-    class Word
+    public class Word
     {
         public string _text;
         public bool _isHidden;
