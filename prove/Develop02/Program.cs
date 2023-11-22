@@ -7,8 +7,8 @@ public class Program
     static void Main(string[] args)
     {
 
-        static void DisplayMenu()
-        {
+        // static void DisplayMenu()
+        // {
             Console.WriteLine("Welcome to the journal program!");
             Console.WriteLine("Please select one of the following: ");
             Console.WriteLine("1. Write New Entry");
@@ -21,10 +21,8 @@ public class Program
             if (choice == 1)
             {
                 Console.WriteLine("OK here is your prompt of the day!");
-                List<string> prompts = new List<string> {"What did you learn today?", "What's one thing that made you smile today?", "What are three things you were grateful for today?", "What is one problem or challenge you faced today and how did you overcome it?", "Write down three things you have accomplished today, no matter how small.", "What is something someone said today that stuck out to you?", "What did you do today to get out of your comfort zone and grow?"};                  
-                Random PromptGenerator = new Random();
-                int index = PromptGenerator.Next(1,6);
-                string randomPrompt = prompts[index];
+                PromptGenerator generator = new PromptGenerator();
+                string randomPrompt = generator.GenerateRandomPrompt();
                 Console.WriteLine(randomPrompt);
             }
             else if (choice == 2)
@@ -51,11 +49,11 @@ public class Program
             {
                 Console.WriteLine("OK Goodbye!");
             }
-            else
-            {
-                Console.WriteLine("Please enter one of the 5 numbers.");
-                DisplayMenu();
-            }
-        }
+        //     else
+        //     {
+        //         Console.WriteLine("Please enter one of the 5 numbers.");
+        //         DisplayMenu();
+        //     }
+        // }
     }
 }
