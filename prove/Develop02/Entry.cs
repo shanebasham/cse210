@@ -1,19 +1,21 @@
 public class Entry
 {
-    public string _entry;
-    public DateTime _date;
-    public string _prompt;
 
-    public object Date { get; internal set; }
-    public object Prompt { get; internal set; }
-    public object Response { get; internal set; }
+    public string _date { get; internal set; }
+    public string _prompt { get; internal set; }
+    public string _response { get; internal set; }
+
+    public Entry(string dateText, string randomPrompt, string response)
+    {
+        _date = dateText;
+        _prompt = randomPrompt;
+        _response = response;
+    }
 
     public void Display()
     {
-        List<Entry> entries = new List<Entry>();
-        foreach (Entry todayEntry in entries) 
-        {
-            Console.WriteLine(todayEntry);
-        }
+        Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Prompt: {_prompt}");
+        Console.WriteLine($"Response: {_response}");   
     }
 }

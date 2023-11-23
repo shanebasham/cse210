@@ -12,9 +12,8 @@ public class Journal
     {
         foreach (Entry _todayEntry in _entries)
         {
-            Console.WriteLine($"Date: {_todayEntry.Date}");
-            Console.WriteLine($"Prompt: {_todayEntry.Prompt}");
-            Console.WriteLine($"Response: {_todayEntry.Response}");
+            _todayEntry.Display();
+            Console.WriteLine("------------------------------------");
         }
     }
 
@@ -27,19 +26,17 @@ public class Journal
     //save to file
     public static void SaveToFile(string file)
     {
-        // Console.WriteLine("Please enter the file name here: ");
-        // file = Console.ReadLine();
-        // using (StreamWriter outputFile = new StreamWriter (file))
-        // {
-        //     foreach (var entry in _entries)
-        //     {
-        //         outputFile.WriteLine ($" {entry.Date}, {entry.Prompt}, {entry. Response}");
-        //     }
-        // }
-        // Console.WriteLine("Entry saved successfully! ");
+        using(StreamWriter outputFile = new StreamWriter(file))
+        {
+            foreach (var entry in outputFile)
+            {
+                entry.Display();
+            }
+        }
+        Console.WriteLine("Entry saved successfully! ");
     }
 
-//load from file
+    //load from file
     public static List<Entry> LoadFromFile(string file)
     {
         List<Entry> fileEntries = new List<Entry>();
