@@ -26,13 +26,13 @@ public class Journal
     //save to file
     public static void SaveToFile(string file)
     {
-        using(StreamWriter outputFile = new StreamWriter(file))
-        {
-            foreach (var entry in outputFile)
-            {
-                entry.Display();
-            }
-        }
+        // using(StreamWriter outputFile = new StreamWriter(file))
+        // {
+        //     foreach (var entry in outputFile)
+        //     {
+        //         entry.Display();
+        //     }
+        // }
         Console.WriteLine("Entry saved successfully! ");
     }
 

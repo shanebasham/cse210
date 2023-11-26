@@ -54,8 +54,8 @@ namespace scripture_memorizer
 
         public void HideRandomWords(int numberToHide)
         {
-            Random random = new Random();
-            Word._isHidden();
+            // Random random = new Random();
+            // Word._isHidden();
             
             
             // for (int i = 0; i < numberToHide; i++)
