@@ -25,6 +25,7 @@ class Program
                 Console.WriteLine("  2. Eternal Goal");
                 Console.WriteLine("  3. Checklist Goal");
                 string goalChoice = Console.ReadLine();
+                List<Goal> goals = new List<Goal>();
                 if (goalChoice == "1")
                 {
                     Console.WriteLine("What is the name of your goal? ");
@@ -33,6 +34,10 @@ class Program
                     string goalDescription = Console.ReadLine();
                     Console.WriteLine("How many points will you get when you achieve this goal? ");
                     int goalPoints = int.Parse(Console.ReadLine());
+                    // Goal Goal = Goal();
+                    // Goal.Goal(goalName, goalDescription, goalPoints);
+                    // Goal goal1 = new Goal(goalName, goalDescription, goalPoints);
+                    // goals.Add(goal1);
                 }
                 else if (goalChoice == "2")
                 {
@@ -82,15 +87,13 @@ class Program
             }
             else if (choice == "5")
             {
-                Console.WriteLine("Your goals are: ");
                 // foreach (Goal goal in goals)
                 // {
                 //     Console.WriteLine(goal);
                 // }
-                Console.WriteLine("Which goal did you accomplish?" );
-                int goalAccomplished = int.Parse(Console.ReadLine());
-                Console.WriteLine("Which goal did you accomplish?" );
-
+                // Console.WriteLine("Which goal did you accomplish?" );
+                // int goalAccomplished = int.Parse(Console.ReadLine());
+                //GoalManager.RecordEvent();
             }
             else if (choice == "6")
             {

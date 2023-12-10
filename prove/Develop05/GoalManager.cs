@@ -1,14 +1,14 @@
 using System.ComponentModel;
 using System.IO;
 
-public class GoalManager
+public abstract class GoalManager
 {
     public int _score;
     public List<Goal> _goals = new List<Goal>();
     public string _newGoal;
     public string _file;
 
-    //initializes and empty list of goals and sets the player's score to be 0
+    // //initializes and empty list of goals and sets the player's score to be 0
     // public GoalManager()
     // {
     //     int _score = 0;
@@ -38,13 +38,14 @@ public class GoalManager
         _goals.Add(_newGoal);
     }
     //asks the user which goal they have done and then records the event by calling the RecordEvent method on that goal
-    public void RecordEvent()
-    {
-
-    }
+    public abstract void RecordEvent();
     //save goals to file
     public static void SaveGoals(string file)
     {
+        string color = "Blue";
+        using (StreamWriter outputFile = new StreamWriter(file))
+        outputFile.WriteLine($"My favorite color is {color}");
+
         // using(StreamWriter outputFile = new StreamWriter(file))
         // {
         //     foreach (var entry in outputFile)
