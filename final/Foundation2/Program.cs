@@ -1,10 +1,37 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        // Create products
+        Product product1 = new Product("Laptop", "1", 555.55, 2);
+        Product product2 = new Product("Mouse", "2", 8.50, 2);
+        // Create addresses
+        Address usaAddress = new Address("123 E Broadway Blvd.", "Pheonix", "AZ", "USA");
+        Address internationalAddress = new Address("321 N 1st St", "London", "England", "United Kingdom");
+        // Create customers
+        Customer usaCustomer = new Customer("Jack Johnson", usaAddress);
+        Customer internationalCustomer = new Customer("Susan Samuelson", internationalAddress);
+        // Create order 1
+        Order order1 = new Order(usaCustomer);
+        order1.AddProduct(product1);
+        order1.AddProduct(product2);
+        // Create order 2
+        Order order2 = new Order(internationalCustomer);
+        order2.AddProduct(new Product("Book", "3", 15.25, 4));
+        order2.AddProduct(new Product("Shoes", "4", 99.99, 2));
+        // Display order information
+        DisplayOrderInformation(order1);
+        DisplayOrderInformation(order2);
+    }
+    // Display all
+    static void DisplayOrderInformation(Order order)
+    {
+        Console.WriteLine($"Order for {order.Customer.Name}");
+        Console.WriteLine($"\nPacking Label:\n{order.GetPackingLabel()}");
+        Console.WriteLine($"\nShipping Label:\n{order.GetShippingLabel()}");
+        Console.WriteLine($"Total Price: ${order.CalculateTotalPrice()}\n");
+        Console.WriteLine("--------------------------------------------\n");
     }
 }
 
@@ -30,4 +57,5 @@ class Program
 // The address should have a method to return a string all of its fields together in one string (with newline characters where appropriate)
 // Other considerations
 // Make sure that all member variables are private and getters, setters, and constructors are created as needed.
-// Once you have created these classes, write a program that creates at least two orders with a 2-3 products each. Call the methods to get the packing label, the shipping label, and the total price of the order, and display the results of these methods.
+// Once you have created these classes, write a program that creates at least two orders with a 2-3 products each. 
+// Call the methods to get the packing label, the shipping label, and the total price of the order, and display the results of these methods.

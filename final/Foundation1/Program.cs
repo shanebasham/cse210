@@ -1,17 +1,47 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation1 World!");
+        List<Video> videos = new List<Video>();
+        // Create videos
+        Video video1 = new Video("Title 1", "Author 1", 12);
+        video1.AddComment("User1", "Great video");
+        video1.AddComment("User2", "Interesting content");
+        Video video2 = new Video("Title 2", "Author 2", 15);
+        video2.AddComment("User1", "Nice job!");
+        video2.AddComment("User2", "I learned a lot.");
+        Video video3 = new Video("Title 3", "Author 3", 6);
+        video3.AddComment("User1", "Laughed out loud haha");
+        video3.AddComment("User2", "Hilarious!");
+
+        // Add videos to the list
+        videos.Add(video1);
+        videos.Add(video2);
+        videos.Add(video3);
+
+        // Display video info and comments
+        foreach (var video in videos)
+        {
+            Console.WriteLine($"Title: {video.Title}");
+            Console.WriteLine($"Author: {video.Author}");
+            Console.WriteLine($"Length: {video.Length} minutes");
+            Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
+            Console.WriteLine("Comments:");
+            foreach (var comment in video.Comments)
+            {
+                Console.WriteLine($"- {comment.UserName}: {comment.Text}");
+            }
+            Console.WriteLine();
+        }
     }
 }
 
 // You have been hired by a company that does product awareness monitoring by tracking the placement of their products in YouTube videos. They want you to write a program that can help them work with the tens of thousands of videos they have identified as well as the comments on them.
 // Program Specification
 // Write a program to keep track of YouTube videos and comments left on them. As mentioned this could be part of a larger project to analyze them, but for this assignment, you will only need to worry about storing the information about a video and the comments.
-// Your program should have a class for a Video that has the responsibility to track the title, author, and length (in seconds) of the video. Each video also has responsibility to store a list of comments, and should have a method to return the number of comments. A comment should be defined by the Comment class which has the responsibility for tracking both the name of the person who made the comment and the text of the comment.
+// Your program should have a class for a Video that has the responsibility to track the title, author, and length (in seconds) of the video. Each video also has responsibility to store a list of comments, and should have a method to return the number of comments. 
+// A comment should be defined by the Comment class which has the responsibility for tracking both the name of the person who made the comment and the text of the comment.
 // Once you have the classes in place, write a program that creates 3-4 videos, sets the appropriate values, and for each one add a list of 3-4 comments (with the commenter's name and text). Put each of these videos in a list.
 // Then, have your program iterate through the list of videos and for each one, display the title, author, length, number of comments (from the method) and then list out all of the comments for that video. Repeat this display for each video in the list.
 // Note: The YouTube example is just to give you a context for creating classes to store information. You will not actually be connecting to YouTube or downloading content in any way.
