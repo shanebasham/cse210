@@ -1,12 +1,28 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation4 World!");
+        // Create activities
+        Running runningActivity = new Running(new DateTime(2023, 1, 3), 30, 6.5);
+        Cycling cyclingActivity = new Cycling(new DateTime(2023, 2, 4), 30, 12.7);
+        Swimming swimmingActivity = new Swimming(new DateTime(2023, 3, 5), 30, 2);
+        // Put activities in list
+        List<Activity> activities = new List<Activity>
+        {
+            runningActivity,
+            cyclingActivity,
+            swimmingActivity
+        };
+        // Display summary for each activity
+        foreach (var activity in activities)
+        {
+            Console.WriteLine(activity.GetSummary());
+        }
     }
 }
+
+
 
 // The local fitness center has hired you to write an app for their customers to track their exercise. They have facilities for the following:
 // Running

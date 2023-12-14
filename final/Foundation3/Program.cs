@@ -1,12 +1,30 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation3 World!");
+        // Create events
+        Lectures lectureEvent = new Lectures("Inspiring Talk", "Listen to a special motivational speaker!", new DateTime(2023, 12, 15, 18, 0, 0), "Conference Center", "Salt Lake City", "Utah", "Dr Dan Danielson", 150);
+        Receptions receptionEvent = new Receptions("Holiday Party", "Join us for a festive celebration!", new DateTime(2023, 12, 22, 19, 0, 0), "Community Event Hall", "New York", "New York", "reception@gmail.com");
+        OutdoorGatherings outdoorEvent = new OutdoorGatherings("Community Picnic", "Enjoy a day outdoors with friends and snacks!", new DateTime(2023, 12, 30, 12, 0, 0), "Lakeside Park", "Denver", "Colorado", "Sunny");
+        // Display marketing messages for each event
+        DisplayEventDetails(lectureEvent);
+        DisplayEventDetails(receptionEvent);
+        DisplayEventDetails(outdoorEvent);
+    }
+    // Display all
+    static void DisplayEventDetails(Event events)
+    {
+        Console.WriteLine("Standard Details:");
+        Console.WriteLine(events.GetStandardDetails());
+        Console.WriteLine("\nFull Details:");
+        Console.WriteLine(events.GetFullDetails());
+        Console.WriteLine("\nShort Description:");
+        Console.WriteLine(events.GetShortDescription());
+        Console.WriteLine();
     }
 }
+
 
 // You have been hired by an event planning company. They help organize and market events throughout the world. They need you to write a program to track each of these events and produce the marketing material to distribute on social media. They typically handle a few main types of events:
 // Lectures, which have a speaker and have a limited capacity.
